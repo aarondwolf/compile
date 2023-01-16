@@ -1,0 +1,8 @@
+v 0.1.1
+d compile.  A Stata user-written command to quickly compile a latex file using a standalone environment.
+d Created by Aaron Wolf (aaron.wolf@u.northwestern.edu)
+d
+d Note: compile is still a work in progress. Please feel free to comment and contribute at https://github.com/aarondwolf/compile.
+
+F compile.ado
+F compile.sthlp

@@ -1,0 +1,11 @@
+v 0.1.1
+d Created by Aaron Wolf (aaron.wolf@u.northwestern.edu)
+
+d 	Installation instructions:
+d	net install compile, from("https://aarondwolf.github.io/compile") replace
+d
+d	compile is still a work in progress.
+d Please feel free to comment and contribute at https://github.com/aarondwolf/compile.
+
+
+p compile  A Stata user-written command to quickly compile a latex file using a standalone environment.
