@@ -1,4 +1,4 @@
-*! version 0.1.1  16jan2023 Aaron Wolf, aaron.wolf@u.northwestern.edu
+*! version 0.1.2  16jan2023 Aaron Wolf, aaron.wolf@u.northwestern.edu
 program define compile, rclass
 	
 	version 15
@@ -45,10 +45,12 @@ program define compile, rclass
 		shell pdflatex `using'.tex
 		di "`using'.tex compiled."
 		
-		//	Delete Auxillary Files
+		//	Delete Auxillary Files (pdflatex places them in pwd)
 		if "`delete'" == "delete" {
-			erase `using'.log // Log file
-			erase `using'.aux // 	
+			local last =  max(strrpos("`using'","/"),strrpos("`using'","\"))
+			local fname = substr("`fullpath'",`last'+1,.)
+			erase `fname'.log // Log file
+			erase `fname'.aux // Aux File	
 			di "Auxillary files erased."
 		}
 	}
