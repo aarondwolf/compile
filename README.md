@@ -20,7 +20,7 @@ compile texfile.tex using filename [, options]
 compile generates a new .tex file using the standalone package, and (optionally) compiles it via the shell command. It takes texfile.tex as an input, and auto-generates the preamble necessary for the file to compile. Users can specify packages in packages as well as specific preamble text in preamble to ensure their tex file compiles properly.
 
 Users can also specify the option nocompile if they wish to generate the new tex file without
-compiling it. This is useful on its own, but is especially useful for debugging (e.g. figuring our which
+compiling it. This is useful on its own, but is especially useful for debugging (e.g. figuring out which
 packages are necessary) for compilation.
 
 ## Remarks
@@ -44,7 +44,7 @@ Any packages or preamble you specify will be added before  \begin{document}.
 - **nocompile** Create the new file but do not compile.
 - **packages(string)** List of packages to add to the preamble of the new LaTeX document via \usepackage{.}.
 - **preamble(string)** List of commands to add to the preamble (as is).
-- **border(string)** Adds a border option to the \documentclass{standalone} options. \documentclass{standalone} can accept a single number, or the user can specify, with braces, all four (LBRT) margins. E.g. {1mm 1mm 1mm 1mm}
+- **border(string)** Adds a border option to the \documentclass{standalone} options. \documentclass{standalone} can accept a single number, or the user can specify, with braces, all four (LBRT) margins. E.g. {1mm 1mm 1mm 1mm}.
 
 ## Examples
 The following examples make use of the esttab package.
@@ -90,7 +90,7 @@ compile basic.tex using newfile, replace
                         "}"     
                         "\end{table}"   );
 
-compile complex.tex using newfile_complex, replace del
+compile complex.tex using newfile_complex, replace
 packages(booktabs graphics threeparttable) border({-20mm 3mm -20mm 3mm});
                 
 # delimit cr
