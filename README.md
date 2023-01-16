@@ -45,7 +45,6 @@ Any packages or preamble you specify will be added before  \begin{document}.
 - **packages(string)** List of packages to add to the preamble of the new LaTeX document via \usepackage{.}.
 - **preamble(string)** List of commands to add to the preamble (as is).
 - **border(string)** Adds a border option to the \documentclass{standalone} options. \documentclass{standalone} can accept a single number, or the user can specify, with braces, all four (LBRT) margins. E.g. {1mm 1mm 1mm 1mm}
-- **delete** Deletes the .log and .aux files after compilation.
 
 ## Examples
 The following examples make use of the esttab package.

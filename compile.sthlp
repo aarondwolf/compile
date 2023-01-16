@@ -1,5 +1,5 @@
 {smcl}
-{* *! version 0.1.1 Aaron Wolf 16jan2023}{...}
+{* *! version 0.1.2 Aaron Wolf 16jan2023}{...}
 {title:Title}
 
 {phang}
@@ -25,8 +25,6 @@
 {synopt:{opt bord:er(string)}}Adds a border option to the {it: \documentclass{standalone}} 
 options. {it: \documentclass{standalone}} can accept a single number, or the 
 user can specify, with braces, all four (LBRT) margins. E.g. {1mm 1mm 1mm 1mm}{p_end}
-{synopt:{opt del:ete}}Deletes the .log and .aux files after compilation.{p_end}
-
 
 {synoptline}
 
@@ -104,7 +102,7 @@ The following examples make use of the {help esttab} package.
 			"}"	
 			"\end{table}"	);
 
-	compile complex.tex using newfile_complex, replace del
+	compile complex.tex using newfile_complex, replace
 		packages(booktabs graphics threeparttable) border({-20mm 3mm -20mm 3mm});
 		
 	# delimit cr

@@ -1,9 +1,10 @@
 *! version 0.1.2  16jan2023 Aaron Wolf, aaron.wolf@u.northwestern.edu
+cap program drop compile
 program define compile, rclass
 	
 	version 15
 
-	syntax anything(name=filename) using/ [, Replace noCOMPile PACKages(passthru) PREamble(passthru) BORDer(passthru) DELete]
+	syntax anything(name=filename) using/ [, Replace noCOMPile PACKages(passthru) PREamble(passthru) BORDer(passthru)]
 	
 //	Check whether using has a .tex or .pdf extension
 	if strpos("`using'", ".tex") | strpos("`using'", ".pdf") {
@@ -40,19 +41,20 @@ program define compile, rclass
 	* Close
 	file close compFile
 	
+//	Parse Directories
+	local last =  max(strrpos("`using'","/"),strrpos("`using'","\"))
+	local dirname = substr("`using'",1,`last')
+	if "`dirname'" == "" local auxdir build
+	else local auxdir = "`dirname'/build"
+	local fname = substr("`using'",`last'+1,.)
+	
 //	Compile
 	if "`compile'" != "nocompile" {
-		shell pdflatex `using'.tex
+		shell pdflatex -aux-directory="`auxdir'" -output-directory="`dirname'" `using'.tex
 		di "`using'.tex compiled."
-		
-		//	Delete Auxillary Files (pdflatex places them in pwd)
-		if "`delete'" == "delete" {
-			local last =  max(strrpos("`using'","/"),strrpos("`using'","\"))
-			local fname = substr("`fullpath'",`last'+1,.)
-			erase `fname'.log // Log file
-			erase `fname'.aux // Aux File	
-			di "Auxillary files erased."
-		}
 	}
+	
+	return local fname "`fname'"
+	return local auxdir = "`auxdir'"
 	
 end

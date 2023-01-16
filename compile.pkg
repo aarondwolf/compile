@@ -1,4 +1,4 @@
-v 0.1.1
+v 0.1.2
 d compile.  A Stata user-written command to quickly compile a latex file using a standalone environment.
 d Created by Aaron Wolf (aaron.wolf@u.northwestern.edu)
 d

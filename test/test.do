@@ -45,10 +45,10 @@ qui {
 
 
 //	Basic table
-	compile basic.tex using newfile, replace del
+	compile basic.tex using newfile, replace
 
 //	Complex table --> Requires graphics, threeparttable, and booktabs packages
-	compile complex.tex using newfile_complex, replace del ///
+	compile complex.tex using newfile_complex, replace ///
 		packages(booktabs graphics threeparttable) border({-20mm 3mm -20mm 3mm})
 
 
